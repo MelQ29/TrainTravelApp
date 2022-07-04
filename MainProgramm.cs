@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace TrainTravelApp
 {
-    internal static class Main
+    internal static class MainProgramm
     {
         /// <summary>
         /// The main entry point for the application.
