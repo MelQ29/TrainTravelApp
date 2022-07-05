@@ -7,22 +7,26 @@ CREATE TABLE [dbo].[refUsers]
     [userBDate] DATE NOT NULL,
     [userSex] VARCHAR(5) NOT NULL,
     [userDocument] VARCHAR(50) NOT NULL,
-    [userEmail] VARCHAR(50) NOT NULL,
-    [userLogin] VARCHAR(50) NOT NULL,
-    [userPassword] VARCHAR(50) NOT NULL
+    [userEmail] VARCHAR(50),
+    [userLogin] VARCHAR(50),
+    [userPassword] VARCHAR(50),
+    [deleted] INT NOT NULL
 )
 
 CREATE TABLE [dbo].[refTrains]
 (
     [id] INT NOT NULL PRIMARY KEY,
     [trainType] VARCHAR(50) NOT NULL,
-    [trainNumber] VARCHAR(50) NOT NULL
+    [trainNumber] VARCHAR(50) NOT NULL,
+	[deleted] INT NOT NULL
 )
 
 CREATE TABLE [dbo].[refStations]
 (
     [id] INT NOT NULL PRIMARY KEY,
-    [stationName] VARCHAR(150) NOT NULL
+    [stationName] VARCHAR(150) NOT NULL,
+	[GroupCode] VARCHAR(50),
+	[deleted] INT NOT NULL
 )
 
 CREATE TABLE [dbo].[refTimetable]
@@ -31,8 +35,9 @@ CREATE TABLE [dbo].[refTimetable]
     [startDate] SMALLDATETIME NOT NULL,
     [endDate] SMALLDATETIME NOT NULL,
     [price] FLOAT NOT NULL,
-    [idStation] INT NOT NULL,
-    [idTrain] INT NOT NULL
+    [idRoute] INT NOT NULL,
+    [idTrain] INT NOT NULL,
+	[deleted] INT NOT NULL
 )
 
 CREATE TABLE [dbo].[refTickets]
@@ -40,8 +45,17 @@ CREATE TABLE [dbo].[refTickets]
     [id] INT NOT NULL PRIMARY KEY,
     [sellDate] SMALLDATETIME NOT NULL,
     [idUsers] INT NOT NULL,
-    [idStations] INT NOT NULL,
-    [idTrains] INT NOT NULL
+    [idTimetable] INT NOT NULL,
+	[deleted] INT NOT NULL
+)
+
+CREATE TABLE [dbo].[refRoutes]
+(
+    [id] INT NOT NULL PRIMARY KEY,
+    [firstStation] VARCHAR(150) NOT NULL,
+    [lastStation] VARCHAR(150) NOT NULL,
+    [Code] VARCHAR(50) NOT NULL,
+    [idStation]
 )
 
 ALTER TABLE refTickets

@@ -16,5 +16,13 @@ namespace TrainTravelApp
         {
             InitializeComponent();
         }
+
+        private void authBtn_Click(object sender, EventArgs e)
+        {
+            String loginEmployee = loginTB.Text; // переменная которая берет данные Логина из текст бокса
+            String passEmployee = passTB.Text; // переменная которая берет данные Пароля из текст бокса
+
+            //DB
+        }
     }
 }
