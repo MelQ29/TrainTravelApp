@@ -16,6 +16,11 @@
 # Mono auto generated files
 mono_crash.*
 
+# SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
